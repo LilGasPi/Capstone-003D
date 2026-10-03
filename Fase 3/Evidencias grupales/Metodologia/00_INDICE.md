@@ -11,23 +11,47 @@ Entrega preparada para la semana del 5 de octubre.
 5. [`05_definition_of_done.md`](./05_definition_of_done.md)
 6. [`06_retrospectivas.md`](./06_retrospectivas.md)
 7. [`07_avance_y_roadmap_presentacion.md`](./07_avance_y_roadmap_presentacion.md)
+8. [`08_matriz_trazabilidad_y_auditoria.md`](./08_matriz_trazabilidad_y_auditoria.md)
+9. [`09_fuentes_y_evidencias.md`](./09_fuentes_y_evidencias.md)
 
 ## Resumen ejecutivo
 
-Estacionando es una plataforma de dos lados orientada a conectar conductores que necesitan estacionar con anfitriones que tienen espacios disponibles. La documentación metodológica declara el uso de Scrum adaptado a contexto académico, justifica su elección, define la visión de producto, estructura el Product Backlog, detalla el Sprint Backlog, establece criterios de Definition of Done y deja retrospectivas y roadmap para explicar qué está implementado y qué continúa pendiente.
+Estacionando es una plataforma de dos lados orientada a conectar conductores que necesitan estacionar con anfitriones que tienen espacios disponibles. La documentación metodológica declara **Scrum adaptado a contexto académico**, justifica su elección, define la visión de producto, estructura el Product Backlog, detalla el Sprint Backlog, establece la Definition of Done, documenta retrospectivas y deja un roadmap verificable.
 
-## Criterio de entrega
+## Requisitos solicitados por la profesora
 
-Esta carpeta reúne los artefactos solicitados por la profesora:
+| Solicitud | Archivo |
+|---|---|
+| Metodología declarada y justificada | 01 |
+| Product Vision | 02 |
+| Product Backlog | 03 |
+| Sprint Backlog | 04 |
+| Definition of Done | 05 |
+| Retrospectivas | 06 |
+| Avance del aplicativo | 07 |
+| Roadmap: lo que está y lo que falta | 07 |
+| Control de auditoría | 08 |
+| Fuentes/evidencias revisadas | 09 |
 
-- Metodología declarada y justificada.
-- Product Vision.
-- Product Backlog.
-- Sprint Backlog.
-- Definition of Done.
-- Retrospectivas.
-- Avance del aplicativo y roadmap para presentación.
+## Regla de avance
+
+Los estados se manejan así:
+
+- **Hecho:** existe evidencia suficiente y es demostrable.
+- **En curso:** existe trabajo parcial, UI, backend o integración que aún requiere cierre/validación.
+- **Pendiente:** no existe evidencia suficiente para declararlo terminado.
+- **Bloqueado:** existe una dependencia externa concreta.
 
 ## Estado del software para presentación
 
-El avance se debe presentar de forma honesta: existen flujos funcionales de exploración, publicación, perfil y reservas/interfaz base, junto con diseño de motores de pricing y ruteo. Funcionalidades como pagos reales, KYC, notificaciones productivas, PWA completa e incidencias avanzadas no deben presentarse como terminadas si aún no están implementadas en producción.
+La presentación debe distinguir con claridad lo terminado, lo que está en curso y lo pendiente. No se deben presentar como finalizadas integraciones que todavía no puedan demostrarse de extremo a extremo.
+
+## Única dependencia documental externa detectada
+
+El archivo docente **`Resumen evidencias Antonio Varas.xlsx`**, visible en el LMS, no fue encontrado en el Drive conectado ni en los repositorios revisados. Por esto, la estructura metodológica está completa, pero la auditoría específica no puede cerrarse observación por observación hasta incorporar ese Excel.
+
+En cuanto se agregue el archivo, se completa la tabla de `08_matriz_trazabilidad_y_auditoria.md` y se cierra cada brecha con su evidencia.
+
+## Próxima actividad después de esta entrega
+
+Corregir los BPMN aplicando notación BPMN real: tipos de tarea, eventos, pools, flujos de mensaje, gateways correctamente conectados y conectores sin cruces ambiguos.
