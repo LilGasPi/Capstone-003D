@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08121e" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Sin conexión | Estacionando</title>
+
+    <!-- Sin fuentes, hojas de estilo ni scripts externos: funciona offline. -->
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-synthesis: none;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 280px;
+        background:
+          radial-gradient(ellipse at 50% 20%, rgba(0, 111, 217, 0.1), transparent 57%),
+          #08121e;
+        color: #f5f9ff;
+      }
+
+      .page {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      .header {
+        border-bottom: 1px solid #203145;
+      }
+
+      .header-inner {
+        width: min(1200px, 100%);
+        min-height: 72px;
+        margin: 0 auto;
+        padding: 12px clamp(16px, 4vw, 36px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        position: relative;
+        display: grid;
+        flex: 0 0 auto;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #f1f6fc;
+        color: #08121e;
+        font-size: 23px;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+      }
+
+      .brand-mark::after {
+        position: absolute;
+        right: -2px;
+        bottom: -2px;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #08121e;
+        border-radius: 50%;
+        background: #1689ef;
+        content: "";
+      }
+
+      .brand-name {
+        color: #f5f9ff;
+        font-size: clamp(16px, 3vw, 20px);
+        font-weight: 750;
+        letter-spacing: -0.7px;
+        white-space: nowrap;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid #31465e;
+        border-radius: 999px;
+        color: #b3c7db;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .status-badge::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #f1ad53;
+        content: "";
+      }
+
+      .main {
+        display: flex;
+        min-width: 0;
+        padding: 24px 18px;
+      }
+
+      /* margin:auto centra incluso verticalmente; si falta altura, deja desplazarse. */
+      .card {
+        width: min(100%, 580px);
+        margin: auto;
+        padding: clamp(24px, 4vw, 38px);
+        border: 1px solid #293f55;
+        border-radius: 24px;
+        background: #101e2e;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.17);
+      }
+
+      .signal-icon {
+        display: grid;
+        place-items: center;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 22px;
+        border: 1px solid #27578a;
+        border-radius: 18px;
+        background: #153354;
+        color: #38a0ff;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #50abff;
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: 1.3px;
+      }
+
+      h1 {
+        margin: 0;
+        color: #f5f9ff;
+        font-size: clamp(29px, 5vw, 40px);
+        font-weight: 750;
+        letter-spacing: -1.35px;
+        line-height: 1.13;
+        text-wrap: balance;
+      }
+
+      .description {
+        margin: 14px 0 0;
+        color: #b0c4d9;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .tips {
+        display: grid;
+        gap: 15px;
+        margin: 24px 0 0;
+        padding: 19px;
+        border: 1px solid #30445a;
+        border-radius: 16px;
+        background: #17293d;
+        list-style: none;
+      }
+
+      .tip {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: #d9e5f1;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .tip svg {
+        flex: 0 0 auto;
+        width: 19px;
+        height: 19px;
+        color: #9bb6d0;
+      }
+
+      .retry {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 49px;
+        margin-top: 22px;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 12px;
+        background: #0877d8;
+        color: #fff;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .retry:hover {
+        background: #168bf0;
+        transform: translateY(-1px);
+      }
+
+      .retry:focus-visible {
+        outline: 3px solid #a5d5ff;
+        outline-offset: 3px;
+      }
+
+      .footer {
+        padding: 10px 18px max(18px, env(safe-area-inset-bottom));
+        color: #849db6;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        .header-inner {
+          min-height: 64px;
+        }
+
+        .brand-mark {
+          width: 33px;
+          height: 33px;
+          font-size: 21px;
+        }
+
+        .status-badge {
+          padding: 7px 9px;
+          font-size: 11px;
+        }
+
+        .main {
+          padding: 16px 14px;
+        }
+
+        .card {
+          border-radius: 20px;
+        }
+
+        .signal-icon {
+          width: 52px;
+          height: 52px;
+          margin-bottom: 18px;
+          border-radius: 16px;
+        }
+
+        .signal-icon svg {
+          width: 27px;
+          height: 27px;
+        }
+
+        .tips {
+          gap: 12px;
+          margin-top: 19px;
+          padding: 15px;
+        }
+      }
+
+      @media (max-height: 700px) {
+        .main {
+          padding-top: 14px;
+          padding-bottom: 14px;
+        }
+
+        .card {
+          padding: 22px;
+        }
+
+        .signal-icon {
+          width: 48px;
+          height: 48px;
+          margin-bottom: 14px;
+        }
+
+        .description {
+          margin-top: 10px;
+          line-height: 1.55;
+        }
+
+        .tips {
+          margin-top: 16px;
+          padding: 13px;
+          gap: 10px;
+        }
+
+        .retry {
+          margin-top: 16px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .retry {
+          transition: none;
+        }
+
+        .retry:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header-inner">
+          <div class="brand" aria-label="Estacionando">
+            <span class="brand-mark" aria-hidden="true">P</span>
+            <span class="brand-name">estacionando.</span>
+          </div>
+          <span class="status-badge">Sin conexión</span>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="card" aria-labelledby="offline-title">
+          <div class="signal-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h.01" />
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+              <path d="M5.06 12.65a11 11 0 0 1 5.1-2.4" />
+              <path d="M14.5 10.3a11 11 0 0 1 4.44 2.35" />
+              <path d="M2 9.2a16 16 0 0 1 5.6-3.1" />
+              <path d="M12 5a16 16 0 0 1 10 4.2" />
+              <path d="M2 2l20 20" />
+            </svg>
+          </div>
+
+          <p class="eyebrow">CONEXIÓN INTERRUMPIDA</p>
+          <h1 id="offline-title">Sin conexión,<br />por ahora.</h1>
+          <p class="description">
+            No pudimos cargar Estacionando en este momento. Cuando recuperes
+            internet, podrás seguir explorando espacios y gestionando tus reservas.
+          </p>
+
+          <ul class="tips" aria-label="Qué hacer ahora">
+            <li class="tip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 9a15 15 0 0 1 20 0" />
+                <path d="M5 12a10 10 0 0 1 14 0" />
+                <path d="M8.5 15.5a5 5 0 0 1 7 0" />
+                <path d="M12 19h.01" />
+              </svg>
+              <span>Comprueba tu Wi-Fi o tus datos móviles.</span>
+            </li>
+            <li class="tip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7" />
+                <path d="M3 4v5h5" />
+              </svg>
+              <span>Cuando recuperes la conexión, vuelve a intentarlo.</span>
+            </li>
+          </ul>
+
+          <button class="retry" type="button" id="retry-button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 3-6.7" />
+              <path d="M3 4v5h5" />
+            </svg>
+            Volver a intentar
+          </button>
+        </section>
+      </main>
+
+      <footer class="footer">estacionando. — Tu lugar, más cerca.</footer>
+    </div>
+
+    <script>
+      document.getElementById('retry-button').addEventListener('click', () => {
+        // Conserva la ruta que el usuario intentaba abrir, por ejemplo /centro-ayuda.
+        if (window.location.pathname === '/offline.html') {
+          window.location.assign('/')
+        } else {
+          window.location.reload()
+        }
+      })
+    </script>
+  </body>
+</html>

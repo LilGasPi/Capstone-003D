@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
+import { ServiceWorkerRegister } from '@/components/estacionando/service-worker-register'
 import './globals.css'
 
 const geist = Geist({
@@ -68,6 +69,8 @@ export default function RootLayout({
         >
           {THEME_INIT_SCRIPT}
         </Script>
+
+        <ServiceWorkerRegister />
 
         {children}
 
