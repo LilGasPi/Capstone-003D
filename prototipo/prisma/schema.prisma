@@ -260,3 +260,15 @@ model Task {
 
   @@map("tasks")
 }
+
+/// Contadores compartidos para limitar solicitudes de autenticación.
+/// La clave es un HMAC: no se almacenan correos ni direcciones IP en texto plano.
+model AuthRateLimit {
+  key          String   @id @db.VarChar(128)
+  attempts     Int      @default(0)
+  windowEndsAt DateTime @map("window_ends_at") @db.Timestamptz(3)
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([windowEndsAt])
+  @@map("auth_rate_limits")
+}
